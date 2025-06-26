@@ -1,0 +1,132 @@
+NORTH ROOM
+IF THE PLAYER SELECTS NORTH, THEN THEY ENTER A ROOM WITH AN UNDEAD ADVENTURER WHO HAS (HEALTH: 15, ARMOUR: 0, SPEED: 5).
+
+DISPLAY MESSAGE:
+“You enter the Northern room and notice an Undead Adventurer as the door shuts behind you and you hear it lock. You turn back to the room and can now see a door behind the Undead and a Chest to its left.”
+
+THE PLAYER IS THEN GIVEN 3 OPTIONS:
+
+1) TRY TO TALK TO THE UNDEAD AND ASK THEM IF THEY ARE OKAY.
+   - If the player selects this option, then the Undead attacks for 20 damage. (Example: If it’s the mini knight with 100 health, then after the attack, the knight has 80. If it’s the tiny explorer with 80 health, they go down to 60.)
+   - The player is then given the 3 options again.
+   - If the player’s health reaches 0, then branch to GAME OVER. They lose 50 Bravery Points.
+
+2) ATTACK THE UNDEAD.
+   - If the player selects this option, they attack the Undead, dealing damage equal to the damage of the weapon they selected. (Example: If the mini knight is holding a Needle Sword [Damage: 10], then the Undead’s health goes from 15 down to 5.)
+   - If the Undead’s health reaches 0, then display: “You have defeated the Undead.”
+   - **NEW POTION MECHANIC:** Once the Undead is defeated, allow the player to use a Health Potion (if they have any left). Each potion restores 10 Health, and the total number of potions decreases by 1 each time a potion is used.
+   - If the Undead is defeated, the player also gains 10 Bravery Points, and is given new options.
+
+     1) CONTINUE FORWARD
+        - If the player selects this option, they continue forward to the next room. The next room has 2 Undead that immediately attack the player for 40 damage. (Example: If the mini knight had 80 health remaining, subtract 40 to get 40.)
+        - If the player’s health reaches 0, then branch to GAME OVER.
+        - If the player survives, display:
+          “You survive the surprise attack and retaliate by decapitating one of the Undead and crushing the other’s head with a punch, dealing critical damage. You then notice 2 doors. One is labeled ‘Boss Room,’ and the other is labeled ‘Dungeon Exit.’”
+        - The player gains 20 Bravery Points.
+
+        - **NEW POTION MECHANIC (AGAIN):** After defeating these two Undead, the player may again choose to use a potion if any remain.
+
+        - The player is now given new options:
+
+          1) ENTER BOSS ROOM
+             - If the player selects this option, they gain 50 Bravery Points upon entering.
+             - **They may choose to use another Health Potion here** if they still have any left, just before the boss fight.
+             - If their health is over 50 after that, they battle the Boss and receive an award. Display:
+               “Entering the boss room, you notice an Undead Knight and immediately engage in battle. The battle is fierce, and you barely defeat the enemy. You are awarded the trophy ‘Undead’s Bane’ and are teleported out of the dungeon.”
+             - Then display the player’s current Health and Bravery Points as well as the trophy they gained.
+             - If their health is less than 50, then the Boss’s aura kills the player. The player still gains 30 Bravery Points, but display:
+               “Entering the boss room you notice an Undead Knight. You lock eyes with the Knight as it releases its aura which immediately kills you.”
+             - Then display the player’s Health as 0 and their current Bravery Points, with no trophies, and branch to GAME OVER.
+
+          2) EXIT DUNGEON
+             - If the player selects this option, then they exit the dungeon and lose 50 Bravery Points. Display:
+               “Seeing the exit you sprint towards it. You open the door and see a portal that leads out of the dungeon. You step through and escape the dungeon.”
+
+     2) OPEN CHEST
+        - If the player selects this option, they open the chest and gain 10 Bravery Points. Display: “You open the chest.”
+        - If the player is a mini knight, display: “A spike shoots out of the chest and impales you in the head. Game Over!”
+          - Then display the player’s Health as 0 and their current Bravery Points, with no trophies, and branch to GAME OVER.
+        - If the player is a tiny explorer, display: “Thanks to your higher speed, you notice a spike flying at your face from the chest and dodge. Unfortunately, the chest shuts on your arms and bites them clean off. Game Over!”
+          - Then display the player’s Health as 0 and their current Bravery Points, with no trophies, and branch to GAME OVER.
+
+3) SNEAK TO THE CHEST.
+   - If the player selects this option, they gain 30 Bravery Points. Display:
+     “You sneak past the Undead and head towards the chest. You manage to quietly open the chest. You notice that the chest is a mimic and jump back as a spike shoots out to where your head would’ve been. The mimic then shuts its mouth. In all this, you notice a sound behind you and turn around, only to see the Undead’s sword flying for your neck. Game Over!”
+   - Then display the player’s Health as 0 and their current Bravery Points, with no trophies, and branch to GAME OVER.
+   - If the player selected mini knight, they are decapitated. If the player selected tiny explorer, display:
+     “You manage to duck your head in time to avoid the sword, however the mimic impales you through the back.”
+   - Either way, Health = 0, no trophies, and GAME OVER.
+
+EAST ROOM
+IF THE PLAYER SELECTS EAST, THEN THEY ENTER A ROOM CALLED THE TRICKSTER’S HALL.
+
+DISPLAY MESSAGE:
+“You enter the Eastern room, and reality seems to bend. A figure wrapped in shadow appears before you, cackling: ‘Solve my riddle, or be trapped here forever!’”
+
+THE PLAYER IS GIVEN A RIDDLE:
+"I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?"
+
+THE PLAYER IS THEN GIVEN 4 OPTIONS:
+1) A MAP
+2) AN ILLUSION
+3) THE SKY
+4) A PUZZLE BOX
+
+IF THE PLAYER SELECTS:
+1) “A MAP” (CORRECT)
+   - Display “Correct! You gain 20 Bravery Points and receive the Mysterious Key.” 
+   - No combat occurs, so no potion usage here.
+
+2), 3), OR 4) (WRONG ANSWERS)
+   - Display “Wrong! The Trickster laughs as reality warps. You take 10 damage.”
+   - Subtract 10 HP from the player’s current Health.
+   - If the player’s Health reaches 0, branch to GAME OVER.
+(This room does not have combat, so no immediate chance to use a potion after the riddle. The Mysterious Key might help in another area.)
+
+SOUTH ROOM
+IF THE PLAYER SELECTS SOUTH, THEN THEY ENTER A ROOM COATED IN THICK COBWEBS.
+
+DISPLAY MESSAGE:
+“You step into the Southern room, where thick cobwebs coat every surface. Suddenly, a Monstrous Spider (HEALTH: 25) skitters toward you, fangs dripping with venom!”
+
+THE PLAYER IS THEN GIVEN 3 OPTIONS:
+
+1) FIGHT THE SPIDER
+   - The player deals damage equal to their weapon damage to the Spider. The Spider strikes back for 10 damage until one side is defeated.
+   - If the Spider’s Health hits 0, display:
+     “Your final blow is fatal! The Spider collapses onto the ground.”
+     - **NEW POTION MECHANIC:** The player may now choose to use a Health Potion if they have any left. Each potion used = +10 Health, potions left -= 1.
+   - If the player’s Health reaches 0 from the Spider’s attacks, branch to GAME OVER.
+
+2) ATTEMPT TO FRIGHTEN THE SPIDER
+   - The player tries to scare the Spider away. There is a 50% chance it flees.
+   - If it flees, display “The Spider recoils and skitters into the darkness. You slip past and return to the starting area.”
+   - If it fails, the Spider attacks for 10 damage. If Health reaches 0, branch to GAME OVER.
+
+3) FLEE BACK TO THE MAIN CHAMBER
+   - The player immediately retreats. No damage is taken, but the Spider remains alive. The player returns to the starting area.
+
+
+WEST ROOM
+
+IF THE PLAYER SELECTS WEST, THEN THEY ENTER A ROOM WITH A MYSTERIOUS FOUNTAIN.
+
+DISPLAY MESSAGE:
+“You enter a dimly lit chamber with a grand, glowing fountain at its center. A plaque reads: ‘To drink is to embrace fate.’”
+
+THE PLAYER IS THEN GIVEN 3 OPTIONS:
+
+1) DRINK FROM THE FOUNTAIN
+   - There is a 50% chance the player gains +10 Health, and a 50% chance they lose 10 Health.
+   - If the player’s Health falls to 0 due to this curse, branch to GAME OVER.
+
+2) INVESTIGATE THE FOUNTAIN
+   - The player notices a hidden button beneath the water.
+   - If pressed, the fountain drains away, revealing a spiral staircase leading downward. (This can lead to further story developments.)
+
+3) LEAVE IT ALONE
+   - No effect. The player can return to the main chamber or explore elsewhere.
+
+(Because this is not a combat scenario, there is no direct opportunity to use potions after an enemy defeat here. However, the player might choose to use a potion manually if your game logic allows it at any time.)
+
+
